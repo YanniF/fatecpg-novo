@@ -1,0 +1,52 @@
+body {
+  color: $cor-texto;
+  background-color: #eff0f2;
+}
+
+main {
+  .container {
+    padding-top: 4rem;
+    // padding-bottom: 4rem;
+  }
+}
+
+.link {
+  position: relative;
+  padding: 0 .2rem;
+  color: inherit;
+  text-transform: uppercase;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    background-color: $cor-primaria;
+    height: 15%;
+    bottom: 15%;
+    z-index: -1;
+    transition: width .4s ease-in-out, left .4s ease-in-out;
+  }
+
+  &::before {
+    width: 100%;
+    left: 0;
+  }
+
+  &:hover::before {
+    opacity: 0;
+    width: 0;
+    right: 0;
+  }
+
+  &::after {
+    left: 0;
+    width: 100%;
+    opacity: 0;
+  }
+
+  &:hover::after {
+    width: 0;
+    left: 100%;
+    opacity: 1;
+  } 
+}
