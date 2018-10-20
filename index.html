@@ -16,12 +16,34 @@
         <h1 class="hide">Fatec Praia Grande</h1>
         <a href="#" class="brand-logo"><img src="imagens/logo-fatec.png" class="responsive-img" alt="Fatec Praia Grande"></a>
         <ul class="right hide-on-med-and-down">
-          <li><a href="#" class="active">Home</a></li>
-          <li><a href="#">Cursos</a></li>
-          <li><a href="#">Secretaria</a></li>
-          <li><a href="#">Sites</a></li>
+          <li><a href="#" class="active">Home </a></li>
           <li>
-            <a href="#">
+            <a href="#" class="dropdown-trigger" data-target="dropdownCursos">Cursos <i class="fas fa-caret-down right"></i></a>
+            <ul id="dropdownCursos" class="dropdown-content">
+              <li><a href="#">Análise e Desenvolvimento de Sistemas</a></li>
+              <li><a href="#">Comércio Exterior</a></li>
+              <li><a href="#">Gestão Empresarial</a></li>
+              <li><a href="#">Processos Químicos</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#" class="dropdown-trigger" data-target="dropdownSecretaria">Secretaria <i class="fas fa-caret-down right"></i></a>
+            <ul id="dropdownSecretaria" class="dropdown-content">
+              <li><a href="#">Informações Gerais</a></li>
+              <li><a href="#">Documentos e Modelos</a></li>
+              <li><a href="#">Requerimentos</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#" class="dropdown-trigger" data-target="dropdownSites">Sites <i class="fas fa-caret-down right"></i></a>
+            <ul id="dropdownSites" class="dropdown-content">
+                <li><a href="#">Siga</a></li>
+                <li><a href="#">Moodle</a></li>
+                <li><a href="#">Biblioteca</a></li>
+              </ul>
+          </li>
+          <li>
+            <a href="#modalLogin" class="modal-trigger">
               <svg>
                 <use xlink:href="imagens/sprite.svg#user" />
               </svg>
@@ -263,30 +285,23 @@
             <div class="row">
               <figure>
                 <a href="#"><img src="imagens/parceiros-1.png" alt="IBM"></a>
-                <figcaption><a href="#">IBM</a></figcaption>
               </figure>
               <figure>
                 <a href="#"><img src="imagens/parceiros-2.jpg" alt="Google Acadêmico"></a>
-                <figcaption><a href="#">Google Acadêmico</a></figcaption>
               </figure>
               <figure>
                 <a href="#"><img src="imagens/parceiros-3.jpg" alt="Microsoft"></a>
-                <figcaption><a href="#">Microsoft</a></figcaption>
               </figure>
             </div>
             <div class="row">
               <figure>
                 <a href="#"><img src="imagens/parceiros-4.jpg" alt="Oracle"></a>
-                <figcaption><a href="#">Oracle</a></figcaption>
               </figure>
               <figure>
                 <a href="#"><img src="imagens/parceiros-3.jpg" alt="Microsoft"></a>
-                <figcaption><a href="#">Mais algum parceiro?</a></figcaption>
               </figure>
               <figure>
                 <a href="#"><img src="imagens/parceiros-3.jpg" alt="Microsoft"></a>
-                <figcaption><a href="#">Mais algum parceiro?</a></figcaption>
-              </figure>
             </div>
           </div>
           <div id="projetos">
@@ -368,11 +383,60 @@
     </div>
   </footer>
 
+  <div id="modalLogin" class="modal">
+    <div class="modal-content">
+      <a href="#" class="modal-close right modal-times">&times;</a>
+      <h3>Login</h3>
+      <div class="row">
+        <form class="modal-col">
+          <div class="row">
+            <div class="input-field modal-login">
+              <input id="usuario" type="text" class="validate" required>
+              <label for="usuario">Usuário</label>
+            </div>
+          </div>        
+          <div class="row">
+            <div class="input-field modal-login">
+              <input id="senha" type="password" class="validate" required>
+              <label for="senha">Senha</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="modal-botoes">
+              <label>
+                <input type="checkbox" class="filled-in" checked="checked" />
+                <span>Lembrar</span>
+              </label>
+            </div>
+            <div class="modal-botoes">
+              <input type="submit" class="btn right" value="Acessar" />
+            </div>
+          </div>
+        </form>
+        <div class="modal-col">
+          <div class="row">
+            <div class="modal-login">
+              <a href="#" class="btn">Fazer cadastro</a>
+              <a href="#" class="btn">Recuperar senha</a>
+            </div>
+          </div>          
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js" integrity="sha384-kW+oWsYx3YpxvjtZjFXqazFpA7UP/MbiY4jvs+RWZo2+N94PFZ36T6TFkc9O3qoB"
     crossorigin="anonymous"></script>
   <script src="js/materialize.min.js"></script>
   <script>
     M.AutoInit(); // separar inicialização
+
+    const elems = document.querySelectorAll('.dropdown-trigger');
+    const instances = M.Dropdown.init(elems, { 
+      constrainWidth: false,
+      coverTrigger: false,
+      hover: true,
+    });
   </script>
 </body>
 
